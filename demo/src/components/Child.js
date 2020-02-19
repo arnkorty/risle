@@ -1,4 +1,4 @@
-import { h, Component, useState, Fragment, useGlobalState } from '../../../src'
+import { h, useState, Fragment, useGlobalState } from '../../../src'
 import { context } from './context'
 const Container = (props) => {
 

@@ -20,8 +20,7 @@ export function diff(parentDom, newVNode, oldVNode,  excessDomChildren, mounts, 
 			}
 			else {
 					newVNode._component = c = new Component(newProps);
-					c.constructor = newType;
-					c.render = doRender;
+					c.fn = newType;
 
 				c.props = newProps;
 			}
@@ -34,9 +33,8 @@ export function diff(parentDom, newVNode, oldVNode,  excessDomChildren, mounts, 
 			c._vnode = newVNode;
 			c._parentDom = parentDom;
 
-			tmp = c.render(c.props);
-			let isTopLevelFragment = tmp != null && tmp.type == Fragment && tmp.key == null;
-			newVNode._children = toChildArray(isTopLevelFragment ? tmp.props.children : tmp);
+			tmp = c.fn(c.props);
+			newVNode._children = toChildArray(tmp);
 
 			diffChildren(parentDom, newVNode, oldVNode, excessDomChildren, mounts, oldDom);
 
@@ -196,10 +194,6 @@ export function unmount(vnode, parentVNode, skipRemove) {
 	}
 
 	if (dom!=null) removeNode(dom);
-}
-
-function doRender(props) {
-	return this.constructor(props);
 }
 
 const catchError = function (error, vnode, oldVNode) {

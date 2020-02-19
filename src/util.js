@@ -16,6 +16,6 @@ export function isChanged(a, b) {
 }
 
 export const defer = (fn, cb) => {
-	return Promise.resolve().then(() => fn()).then(value =>  cb ? cb(value) : value)
+	return Promise.resolve().then(fn).then(value =>  cb ? cb(value) : value)
 }
 // typeof Promise=='function' ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout;
