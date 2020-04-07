@@ -16,9 +16,6 @@ export function isChanged(a, b) {
 }
 
 export const defer = (fn, cb) => {
-<<<<<<< HEAD
-	return Promise.resolve().then(fn).then(value =>  cb ? cb(value) : value)
-=======
   return requestAnimationFrame(() =>{
     const value = fn()
     if (cb) {
@@ -26,6 +23,5 @@ export const defer = (fn, cb) => {
     }
     return value
   })
->>>>>>> ff5b0b3... tab convert space
 }
 // typeof Promise=='function' ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout;
