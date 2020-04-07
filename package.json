@@ -1,6 +1,6 @@
 {
   "name": "risle",
-  "version": "0.0.1",
+  "version": "0.0.1-beta",
   "main": "dist/risle.cjs.js",
   "module": "dist/risle.esm.js",
   "browser": "dist/risle.umd.js",
