@@ -5,7 +5,6 @@
   "module": "dist/risle.esm.js",
   "browser": "dist/risle.umd.js",
   "dependencies": {
-    "ms": "^2.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.1",

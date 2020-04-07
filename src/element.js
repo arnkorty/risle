@@ -34,21 +34,6 @@ export function createElement(type, props, children) {
 }
 
 export function createVNode(type, props, key, ref) {
-<<<<<<< HEAD
-	const vnode = {
-		type,
-		props,
-		key,
-		ref,
-		_children: null,
-		_parent: null,
-		_depth: 0,
-		_dom: null,
-		_lastDomChild: null,
-		_component: null,
-		constructor: undefined
-	};
-=======
   const vnode = {
     type,
     props,
@@ -59,10 +44,8 @@ export function createVNode(type, props, key, ref) {
     _depth: 0,
     _dom: null,
     _lastDomChild: null,
-    _component: null,
-    // constructor: undefined
+    _component: null
   };
->>>>>>> ff5b0b3... tab convert space
 
 
   return vnode;

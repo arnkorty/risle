@@ -8,12 +8,6 @@ import { setCurrentVNode } from './hooks'
 export function diff(parentDom, newVNode, oldVNode,  excessDomChildren, mounts, oldDom) {
   let tmp, newType = newVNode.type;
 
-<<<<<<< HEAD
-	if (newVNode.constructor !== undefined) return null;
-=======
-  // if (newVNode.constructor !== undefined) return null;
->>>>>>> ff5b0b3... tab convert space
-
   try {
     if (typeof newType==='function') {
       let c;
@@ -33,34 +27,16 @@ export function diff(parentDom, newVNode, oldVNode,  excessDomChildren, mounts, 
 
       setCurrentVNode(newVNode)
 
-<<<<<<< HEAD
-			c._dirty = false;
-			c._vnode = newVNode;
-			c._parentDom = parentDom;
-=======
-      // c._dirty = false;
       c._vnode = newVNode;
       c._parentDom = parentDom;
->>>>>>> ff5b0b3... tab convert space
+
+      c._dirty = true
 
       tmp = c.fn(c.props);
       newVNode._children = toChildArray(tmp);
 
       diffChildren(parentDom, newVNode, oldVNode, excessDomChildren, mounts, oldDom);
 
-<<<<<<< HEAD
-			c.base = newVNode._dom;
-
-			didMounted(c._vnode)
-		}
-		else {
-			newVNode._dom = diffElementNodes(oldVNode._dom, newVNode, oldVNode, excessDomChildren, mounts);
-		}
-	}
-	catch (e) {
-		catchError(e, newVNode, oldVNode);
-	}
-=======
       c.base = newVNode._dom;
       c._dirty = false
       didMounted(c._vnode)
@@ -72,32 +48,11 @@ export function diff(parentDom, newVNode, oldVNode,  excessDomChildren, mounts, 
   catch (e) {
     catchError(e, newVNode, oldVNode);
   }
->>>>>>> ff5b0b3... tab convert space
 
   return newVNode._dom;
 }
 
 const didMounted = (vnode) => {
-<<<<<<< HEAD
-	const component = vnode._component
-	if (component && component.hooks) {
-		component.hooks.forEach((hook) => {
-			if (hook && hook[0]) {
-				if (hook[1] === USE_EFFECT) {
-					defer(() => {
-						const cb = hook[0]
-						hook[0] = null
-						cb()
-					}, (value) => hook[3] = value)
-				} else if (hook[1] === USE_LAYOUT_EFFECT) {
-					hook[3] = hook[0]()
-					hook[0] = null
-				}
-			}
-		})
-	}
-=======
-  // vnode._dirty = false
   const component = vnode._component
   if (component && component.hooks) {
     component.hooks.forEach((hook) => {
@@ -115,7 +70,6 @@ const didMounted = (vnode) => {
       }
     })
   }
->>>>>>> ff5b0b3... tab convert space
 }
 
 export function commitRoot(mounts, root) {
