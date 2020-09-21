@@ -1,6 +1,13 @@
 # Risle
 类React 库，函数式 jsx
 
+## Install
+```bash
+npm i risle --save
+# or
+yarn add risle
+```
+
 ### useState
 ### useRef
 ### useReducer
@@ -30,7 +37,7 @@ const Child = (props) => {
   return (
     <div>
       共享 Parent 组建变量
-      {gstate.msg} 
+      {gstate.msg}
     </div>
   )
 }
